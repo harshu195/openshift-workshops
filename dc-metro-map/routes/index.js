@@ -34,7 +34,7 @@ if (RAINBOW == 'true') { console.log("Rainbows! "); }
 function wmataJsonToGeoJson(jsonData) {
   var dataOut = { type: "FeatureCollection", features: [] };
   var markerSym = "bus";
-  var markerColor = "#000000";
+  var markerColor = "#ffc801";
   if (BEERME == 'true') { markerSym = "beer"; }
 
   if (jsonData.BusPositions) {
@@ -46,7 +46,7 @@ function wmataJsonToGeoJson(jsonData) {
               coordinates: [item['Lon'], item['Lat']]
           },
           properties: {
-              title: "Bus #" + item['VehicleID'],
+              title: "MY Bus #" + item['VehicleID'],
               description: item['TripHeadsign'],
               'marker-size': "small",
               "marker-color": markerColor,
@@ -61,7 +61,7 @@ function wmataJsonToGeoJson(jsonData) {
 //-----------------------------------------------------------------------------
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('dcmetro', { title: 'D.C. Metro Stations', BEERME: BEERME });
+  res.render('dcmetro', { title: 'MY D.C. Metro Stations', BEERME: BEERME });
 });
 
 //-----------------------------------------------------------------------------
